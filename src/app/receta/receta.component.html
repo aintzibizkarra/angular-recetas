@@ -13,12 +13,17 @@
             <span class="label label-primary likes" (click)="sumarLike()">{{likes}} Likes</span>  
           </p>
           <section class="ingredientes"> 
-            <h4>Ingredientes:</h4>
-            <ol>
-              <li  *ngFor="let ingre of ingredientes">
-               {{ingre}}
-              </li>
-            </ol>
+            <h4 (click)="mostrarIngredientes()">Ingredientes:
+              <span class="glyphicon {{arrow}} "></span>
+            </h4>
+            <div class="panel" *ngIf="show">
+                <ol>
+                    <li  *ngFor="let ingre of ingredientes">
+                     {{ingre}}
+                    </li>
+                  </ol>
+              </div>
+          
           </section>
         </div>
       </div>
