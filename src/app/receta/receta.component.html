@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <!--Directiva ngIf-->
+        <img src="assets/img/gluten_icon.png" *ngIf="!isGlutenFree" alt="Gluten icon" class="imagen">
+        <img src="assets/img/gluten_free_icon.png" *ngIf="isGlutenFree" alt="Gluten free icon" class="imagen">
+        <img src="{{imagen}}" alt="{{nombre}}">
+        <div class="caption">
+          <h3>{{nombre | uppercase}}</h3>
+          <p>{{descripcion | slice:0:110 }}...</p>
+          <p>
+            <span class="cocinero">{{cocinero}}</span>
+            <span class="label label-primary likes" (click)="sumarLike()">{{likes}} Likes</span>  
+          </p>
+          <section class="ingredientes"> 
+            <h4>Ingredientes:</h4>
+            <ol>
+              <li  *ngFor="let ingre of ingredientes">
+               {{ingre}}
+              </li>
+            </ol>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>

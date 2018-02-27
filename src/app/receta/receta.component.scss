@@ -1,0 +1,32 @@
+.thumbnail{
+    position: relative;
+    .imagen{
+        width: 45px;
+        height: 45px;
+        position: absolute;
+        left: 265px;
+        top: 10px;
+    }
+    span.label{
+        float: right;
+        margin-top: 5px;
+    }
+   span.cocinero{
+       font-weight: 600;
+   }
+   
+}
+
+.ingredientes{
+    h4{
+        text-align: center;
+        font-size: 1.2em;
+        padding: 5px 0;
+        border-top: 1px solid grey;
+        border-bottom: 1px solid grey;
+    }    
+}
+
+p{
+    font-size: 1em;
+}
