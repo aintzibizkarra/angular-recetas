@@ -24,11 +24,17 @@
         padding: 5px 0;
         border-top: 1px solid grey;
         border-bottom: 1px solid grey;
-    }  
-    .acordeon{
+    
+        &:hover{
+
+            background-color: teal;
+            cursor: pointer; //para que salga la mano en el cursor
+        }  
+    } 
+    span.glyphicon{
         float: right;
-        border: none;
-    }  
+        margin-right: 10px;
+    } 
 }
 
 p{
