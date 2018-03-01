@@ -10,6 +10,7 @@ import { RecetaComponent } from './receta/receta.component';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
 import { Page404Component } from './page404/page404.component';
 import { HomeComponent } from './home/home.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { HomeComponent } from './home/home.component';
     RecetaComponent,
     PropiedadesComponent,
     Page404Component,
-    HomeComponent
+    HomeComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,

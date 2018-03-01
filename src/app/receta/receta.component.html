@@ -2,23 +2,23 @@
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <!--Directiva ngIf-->
-        <img src="assets/img/gluten_icon.png" *ngIf="!isGlutenFree" alt="Gluten icon" class="imagen">
-        <img src="assets/img/gluten_free_icon.png" *ngIf="isGlutenFree" alt="Gluten free icon" class="imagen">
-        <img src="{{imagen}}" alt="{{nombre}}">
+        <img src="assets/img/gluten_icon.png" *ngIf="!receta.isGlutenFree" alt="Gluten icon" class="imagen">
+        <img src="assets/img/gluten_free_icon.png" *ngIf="receta.isGlutenFree" alt="Gluten free icon" class="imagen">
+        <img src="{{receta.imagen}}" alt="{{receta.nombre}}">
         <div class="caption">
-          <h3>{{nombre | uppercase}}</h3>
-          <p>{{descripcion | slice:0:110 }}...</p>
+          <h3>{{receta.nombre | uppercase}}</h3>
+          <p>{{receta.descripcion | slice:0:110 }}...</p>
           <p>
-            <span class="cocinero">{{cocinero}}</span>
-            <span class="label label-primary likes" (click)="sumarLike()">{{likes}} Likes</span>  
+            <span class="cocinero">{{receta.cocinero}}</span>
+            <span class="label label-primary likes" (click)="sumarLike()">{{receta.likes}} Likes</span>  
           </p>
           <section class="ingredientes"> 
             <h4 (click)="showIngredientes()">Ingredientes:
-              <span class="badge">{{ingredientes.length}}</span> <!--Badges o burbujas para contar el número de ingredientes-->
+              <span class="badge">{{receta.ingredientes.length}}</span> <!--Badges o burbujas para contar el número de ingredientes-->
               <span class="glyphicon {{glyphicon}}" aria-hidden="true"></span>
             </h4>
               <ol *ngIf="show">
-                    <li  *ngFor="let ingre of ingredientes">
+                    <li  *ngFor="let ingre of receta.ingredientes">
                      {{ingre}}
                     </li>
                   </ol>
@@ -27,3 +27,4 @@
       </div>
     </div>
   </div>
+  

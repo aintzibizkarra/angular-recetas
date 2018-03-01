@@ -6,3 +6,10 @@ h1{
     text-align: center;
 }
 
+a:hover{
+    background-color: grey;
+    color: white;
+}
+ a.visited{
+    background-color: grey;
+}
