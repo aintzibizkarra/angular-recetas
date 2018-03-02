@@ -1,3 +1,11 @@
-<p>
-  coche works!
-</p>
+<div class="col-sm-6 col-md-4" 
+     (click)="seleccionar($event)">
+
+    <div class="thumbnail">
+        <img src="{{coche.foto}}" alt="foto {{coche.marca}} {{coche.modelo}}">
+        <div class="caption">
+            <h3>{{coche.marca}}</h3>
+            <p>{{coche.modelo}} {{coche.version}}</p>           
+        </div>
+    </div>
+</div>

@@ -3,6 +3,7 @@ export class Coche{
     marca: string;
     modelo: string;
     version : string;
+    foto: string;
 
     constructor(marca:string, 
                 modelo:string, 
@@ -12,5 +13,6 @@ export class Coche{
         this.marca = marca;
         this.modelo = modelo;
         this.version = version;
+        this.foto = 'assets/img/mercedes-1142259_640.png';
     }
 }
