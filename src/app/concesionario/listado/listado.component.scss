@@ -1,0 +1,17 @@
+ul{
+       list-style: circle;
+}
+
+ul li{
+    color: black;
+}
+
+   li:hover{
+    background: 87ceeb;
+}
+li:active{
+    background: #87ceeb;
+ }
+ li:visited{
+   background: #87ceeb;
+}
