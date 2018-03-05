@@ -82,8 +82,8 @@ export class MOCKS_COCHES {
 	},
 	{
 		"id": 38,
-		"marca": "Golf",
-		"modelo": "Gti",
+		"marca": "Volkswagen",
+		"modelo": "Golf Gti",
 		"version": " 2.0 TSI",
 		"foto": "http://static.carroya.com/vehiculos/1737056/1737056_1_w.jpg",
 		"puertas": 5,

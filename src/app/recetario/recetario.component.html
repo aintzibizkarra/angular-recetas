@@ -1,0 +1,37 @@
+<h1>RECETARIO</h1>
+<div class="row">
+  <div class="col-xs-12">
+      <!-->Buscador
+      <input [(ngModel)] = "searchText" placeholder="Busca tu receta">-->
+  </div>
+
+  
+</div>
+<div class="row">
+    <div class="col-md-2">
+      <div class="panel panel-warning">
+          <div class="panel-heading">
+              <h3 class="panel-title">Lista de Recetas</h3>
+          </div>
+          <div class="panel-body">
+              <!-- Aqui aparecera la lista de las recetas. -->
+          </div>
+    </div>
+  </div>
+
+  <div class="col-md-10">
+      <div class="panel panel-warning">
+          <div class="panel-heading">
+              <h3 class="panel-title">Detalle de las recetas</h3>
+          </div>
+          <div class="panel-body">
+             <!-- llamda componente Hijo -->
+             <app-receta-detalle></app-receta-detalle>
+              
+          </div>
+      </div>
+  </div>
+</div>
+
+   
+
