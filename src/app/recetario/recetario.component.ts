@@ -11,7 +11,7 @@ export class RecetarioComponent implements OnInit {
 
   recetas : Receta[]; //Array<Receta>
   recetaSelec : Receta;
-
+  
   constructor( private recetasService : RecetasService ) { 
     console.log('RecetarioComponent constructor');
   }
@@ -29,4 +29,5 @@ export class RecetarioComponent implements OnInit {
     this.recetaSelec = receta;
   }
 
+  
 }

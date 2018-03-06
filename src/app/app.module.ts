@@ -19,12 +19,18 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { ConcesionarioComponent } from './concesionario/concesionario.component';
 import { CocheComponent } from './concesionario/coche/coche.component';
 import { ListadoComponent } from './concesionario/listado/listado.component';
-
-//Pipees
-import {RoundPipe} from './pipe/round';
-import {FilterPipe} from './pipe/filter.pipe';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { DetalleComponent } from './recetario/detalle/detalle.component';
+
+//Pipes
+import {RoundPipe} from './pipe/round';
+import {FilterPipe} from './pipe/filter.pipe';
+import { RecetaPipe } from './pipe/filter.pipe.receta';
+
+
+
+
+
 
 
 
@@ -43,6 +49,7 @@ import { DetalleComponent } from './recetario/detalle/detalle.component';
     ListadoComponent,
     RoundPipe,
     FilterPipe,
+    RecetaPipe,
     RecetarioComponent,
     DetalleComponent,
    

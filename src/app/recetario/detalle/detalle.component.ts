@@ -10,8 +10,7 @@ export class DetalleComponent implements OnInit {
 
   @Input('receta') receta : Receta;
 
-  show: boolean;
-  glyphicon:string;
+
 
   constructor() { 
     console.log('DetalleComponent constructor');
