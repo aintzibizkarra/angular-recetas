@@ -1,0 +1,36 @@
+<h3>{{receta.nombre}}</h3> 
+<div class="row">
+  <div class="col-xs-5">
+    <img src="{{receta.imagen}}" alt="{{receta.imagen}}" class="img-thumbnail">
+    <img src="assets/img/gluten_icon.png" *ngIf="!receta.isGlutenFree" alt="Gluten icon" class="imagen">
+    <img src="assets/img/gluten_free_icon.png" *ngIf="receta.isGlutenFree" alt="Gluten free icon" class="imagen">
+  </div>
+  <div class="col-xs-7">
+      <section class="ingredientes">
+          
+          <h4 (click)="showIngredientes()">Ingredientes:
+            <span class="badge">{{receta.ingredientes.length}}</span> <!--Badges o burbujas para contar el número de ingredientes-->
+            <span class="glyphicon {{receta.glyphicon}}" aria-hidden="true"></span>
+          </h4>
+            <ol *ngIf="show">
+              <li  *ngFor="let ingre of receta.ingredientes">
+                 {{ingre}}
+              </li>
+            </ol>
+        </section>
+
+  </div>
+</div>
+<div class="row">
+    <div class="caption">
+        <p>
+          <span class="cocinero">{{receta.cocinero}}</span>
+          <span class="label label-primary likes" (click)="sumarLike()">{{receta.likes}} Likes</span>  
+        </p>
+      </div>
+</div>
+<div class="row">
+    <p class="descripcion">
+        {{receta.descripcion}}
+    </p>
+</div>

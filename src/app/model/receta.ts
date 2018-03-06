@@ -16,14 +16,15 @@ export class Receta{
     //Solo es posible un constructor.
     constructor(nombre:string, 
                 cocinero:string ='Anonimo',//valor por defecto para undefined o no viene el parametro
-                imagen:string = 'assets/img/receta_Default.jpg',
-                descripcion = ''
+                imagen:string = './assets/img/receta_Default1.jpg',
+                descripcion = '',
+                likes
         ){
         console.log('Receta constructor.');
 
         this.nombre = nombre;
         this.imagen = imagen;
-        this.likes = 0;
+        this.likes = likes;
         this.cocinero = cocinero;
         this.descripcion = descripcion;
         this.isGlutenFree = false;

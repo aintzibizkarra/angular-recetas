@@ -15,7 +15,7 @@
           <section class="ingredientes"> 
             <h4 (click)="showIngredientes()">Ingredientes:
               <span class="badge">{{receta.ingredientes.length}}</span> <!--Badges o burbujas para contar el número de ingredientes-->
-              <span class="glyphicon {{glyphicon}}" aria-hidden="true"></span>
+             <span class="glyphicon {{glyphicon}}" aria-hidden="true"></span>
             </h4>
               <ol *ngIf="show">
                     <li  *ngFor="let ingre of receta.ingredientes">

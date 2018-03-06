@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Receta} from '../model/receta';
+import { Receta } from '../model/receta';
+import { RecetasService } from '../providers/recetas.service';
 
 @Component({
   selector: 'app-recetario',
@@ -8,19 +9,24 @@ import {Receta} from '../model/receta';
 })
 export class RecetarioComponent implements OnInit {
 
-  listaRecetas : Array<Receta>;
-  receta: Receta;
+  recetas : Receta[]; //Array<Receta>
+  recetaSelec : Receta;
 
-  constructor() {
-    console.log('RecetarioComponent constructor'); 
-    this.receta = new Receta('','','','');
-    this.listaRecetas =new Array<Receta>();
+  constructor( private recetasService : RecetasService ) { 
+    console.log('RecetarioComponent constructor');
+  }
 
-    this.listaRecetas.push( new Receta('Marmitako','karlos Argiñano','assets/img/receta_Default.jpg','') );
-   }
- 
   ngOnInit() {
     console.log('RecetarioComponent ngOnInit');
+    this.recetas = this.recetasService.getAll();
+
+    this.recetaSelec = this.recetas[0] || new Receta('Anonimo','','','',0);
+
+  }
+
+  seleccionarReceta( receta : Receta ){
+    console.log('RecetarioComponent seleccionarReceta');
+    this.recetaSelec = receta;
   }
 
 }
