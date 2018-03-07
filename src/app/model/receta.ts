@@ -14,7 +14,7 @@ export class Receta {
     //solo es posible un constructor
     constructor( 
         nombre : string ,
-        cocinero: string = 'Anonimo' //valor por defecto para 'undefined' o sin parametro
+        cocinero: string = '' //valor por defecto para 'undefined' o sin parametro
     ){
 
         console.log('Receta constructor');

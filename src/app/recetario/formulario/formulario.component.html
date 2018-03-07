@@ -16,19 +16,33 @@
             <p>Estado:  {{ formulario.status | json }}</p>
             <hr>
             <form [formGroup]="formulario" (ngSubmit)="sumitar($event)" novalidate >
-                 
                 <div class="form-group">
+                    <div class=" imagenModal">
+                        <img formControlName="imagen" src="assets/img/receta_Default.jpg" class="img-thumbnail" alt="receta foto">
+                        <label for="imagenModal">Foto: <input class="textoImagenModal" type="text"></label>
+                    </div>
                     <label for="nombre">Nombre:</label>
                     <input id="nombre" formControlName="nombre" placeholder="Nombre">
                     <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio, mínimo 2 letras</p>
                 </div>
-                
+               
+               
                 <div class="form-group">
                     <label for="cocinero">Cocinero:</label>
                     <input id="cocinero" formControlName="cocinero" placeholder="Cocinero">                
                 </div>   
+                <div class="form-group">
+                    <label for="gluten">Gluten:</label>
+                    <input type="radio" name="gluten"  >Si
+                    <input type="radio" name="gluten">No
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control" rows="5" id="descripcion" formControlName= "descripcion"></textarea>
+                  <p *ngIf="formulario.controls.descripcion.invalid && formulario.controls.descripcion.touched" class="text-danger">*Obligatorio, mínimo 100 carácteres</p>
+                </div>
+              
              
-                <input type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-block" value="Crear">
+                <input type="submit" [disabled]="!formulario.valid" class="btn btn-default btn-block" value="Crear">
             </form>
 
 

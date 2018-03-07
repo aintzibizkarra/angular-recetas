@@ -33,7 +33,10 @@ export class FormularioComponent implements OnInit {
     this.formulario = this.fb.group({
       //FormControl(input) => ['value', [Validaciones] ]
       nombre : ['', [Validators.required, Validators.minLength(2)] ],
-      cocinero : ''
+      cocinero : ['',[Validators.minLength(5)]],
+      glutenSi:[],
+      descripcion:['',[Validators.required, Validators.minLength(100)]],
+     imagen: ['']
     });
 
   }
@@ -43,9 +46,15 @@ export class FormularioComponent implements OnInit {
 
     //recoger datos del formulario
     let nombre = this.formulario.value.nombre;
+    let cocinero = this.formulario.value.cocinero;
+    let descripcion= this.formulario.value.descripcion;
+    let imagen = this.formulario.value.imagen;
 
 
     let receta = new Receta(nombre);
+    receta.cocinero = cocinero;
+    receta.imagen = imagen;
+
 
     //llamar Servicio
     this.recetasService.crear( receta );
