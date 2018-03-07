@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 //Nuestro Modulo para Routing
 import { AppRouter } from './app.route';
@@ -25,7 +25,8 @@ import { DetalleComponent } from './recetario/detalle/detalle.component';
 //Pipes
 import {RoundPipe} from './pipe/round';
 import {FilterPipe} from './pipe/filter.pipe';
-import { RecetaPipe } from './pipe/filter.pipe.receta';
+import { FilterRecetas } from './pipe/filter.pipe.receta';
+import { FormularioComponent } from './recetario/formulario/formulario.component';
 
 
 
@@ -49,15 +50,17 @@ import { RecetaPipe } from './pipe/filter.pipe.receta';
     ListadoComponent,
     RoundPipe,
     FilterPipe,
-    RecetaPipe,
+    FilterRecetas,
     RecetarioComponent,
     DetalleComponent,
+    FormularioComponent,
    
   ],
   imports: [
     BrowserModule,
     AppRouter,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CochesService,

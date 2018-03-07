@@ -10,19 +10,21 @@ export class DetalleComponent implements OnInit {
 
   @Input('receta') receta : Receta;
 
-
-
   constructor() { 
     console.log('DetalleComponent constructor');
   }
 
   ngOnInit() {
     console.log('DetalleComponent ngOnInit');
+    console.log('Detalle de la receta: %o', this.receta);
   }
-  sumarLike(){
-    console.log('Click en sumarLike');
-    this.receta.likes ++;
-    
+
+
+  /**
+  * Incremetar likes
+  */
+  sumLike() {
+    console.log('RecetarioComponent sumLike()');
+    this.receta.likes++;
   }
-  
 }

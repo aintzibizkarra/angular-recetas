@@ -1,42 +1,39 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Receta } from '../model/receta';
 
-@Pipe({
-    name: 'filterReceta'
-})
-export class RecetaPipe implements PipeTransform {
-    transform(recetas: Receta[], searchText: string, isGlutenFree:boolean): Receta[] {
-       //Si no hay recetas retornar vacio
-        if(!recetas) {return [];}
+@Pipe({name: 'filterRecetas'})
+export class FilterRecetas implements PipeTransform {
 
-        //Si no hay busqueda y es libre de gluten (isGlutenFree es vacio) devuelve recetas sin gluten
-        if(!searchText && isGlutenFree) {
-            return recetas.filter( it  => {
-                if(it.isGlutenFree){
-                    return it;
-                }
-            });
+  transform(recetas: Receta[], searchText: string, isGlutenFree : boolean ): Receta[] {  
+
+    //si no hay recetas retornar vacio
+    if (!recetas) return [];
+
+    let recetasFilterArray: Receta[] = [];
+
+    //Filtramos si llevan gluten o no
+    if (isGlutenFree) {
+      recetas.forEach(it => {
+        if (it.isGlutenFree) {
+          recetasFilterArray.push(it);
         }
-        //si noy busqueda devuelve todas las recetas
-        if (!searchText){return recetas};
+      });
+    } else {
+      recetasFilterArray = recetas;
+    }
 
-       
-        searchText = searchText.toLowerCase();
-        let resultado = '';
-        return recetas.filter( it  => {
-            if(isGlutenFree){
-                if(it.isGlutenFree){
-                    resultado = it.nombre + it.cocinero + it.ingredientes;
-                    resultado = resultado.toLowerCase();
-                    return resultado.includes(searchText);
-                }
-            }else{
-                resultado = it.nombre + it.cocinero + it.ingredientes;
-                resultado = resultado.toLowerCase();
-                return resultado.includes(searchText);
-            }
-            
-         });
-       }
+    //De los que quedan filtramos por texto si hay
+    if (!searchText) {
+      return recetasFilterArray;
+    } else {
+      searchText = searchText.toLowerCase();
+      let receta = '';
+      return recetasFilterArray.filter(it => {
+        receta = it.nombre + it.ingredientes + it.cocinero;
+        receta = receta.toLowerCase();
+        return receta.includes(searchText);
+      });
+    }
+  }
+
 }
-

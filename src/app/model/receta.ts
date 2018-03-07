@@ -1,39 +1,36 @@
- import { cleanSession } from "selenium-webdriver/safari";
-
-/* Una clase para encapsular los atributos de una receta. */ 
-
-export class Receta{
+ /* Clase para encapsular los atributos de un Receta */
+export class Receta {
 
     //Atributos
-    nombre:string;
-    imagen:string;
-    descripcion:string;
-    likes:number;
-    isGlutenFree: boolean;
-    cocinero: string;
-    ingredientes:string[];
-    
-    //Solo es posible un constructor.
-    constructor(nombre:string, 
-                cocinero:string ='Anonimo',//valor por defecto para undefined o no viene el parametro
-                imagen:string = './assets/img/receta_Default1.jpg',
-                descripcion = '',
-                likes
-        ){
-        console.log('Receta constructor.');
+    id : number;
+    nombre : string;
+    imagen : string;
+    likes  : number;
+    cocinero : string;
+    descripcion : string;
+    isGlutenFree : boolean;
+    ingredientes : string[];
 
+    //solo es posible un constructor
+    constructor( 
+        nombre : string ,
+        cocinero: string = 'Anonimo' //valor por defecto para 'undefined' o sin parametro
+    ){
+
+        console.log('Receta constructor');
+        this.id = -1;
         this.nombre = nombre;
-        this.imagen = imagen;
-        this.likes = likes;
+        this.imagen = 'assets/imgs/receta_default.jpg';
+        this.likes = 0;
         this.cocinero = cocinero;
-        this.descripcion = descripcion;
+        this.descripcion = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et autem ipsum repellat consectetur deserunt doloribus sequi explicabo laudantium, deleniti, id totam, neque laborum debitis quia doloremque officiis incidunt labore ut.';
         this.isGlutenFree = false;
         this.ingredientes = [];
 
     }
-    addingrediente (ingrediente:string){
+
+    addIngrediente( ingrediente : string ){
         this.ingredientes.push(ingrediente);
     }
 
-   
 }

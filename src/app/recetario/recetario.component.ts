@@ -11,9 +11,9 @@ export class RecetarioComponent implements OnInit {
 
   recetas : Receta[]; //Array<Receta>
   recetaSelec : Receta;
-  glutenFilter:boolean;
-  
-  constructor( private recetasService : RecetasService ) { 
+  glutenFilter : boolean;
+
+  constructor( public recetasService : RecetasService ) { 
     console.log('RecetarioComponent constructor');
     this.glutenFilter = false;
   }
@@ -22,7 +22,7 @@ export class RecetarioComponent implements OnInit {
     console.log('RecetarioComponent ngOnInit');
     this.recetas = this.recetasService.getAll();
 
-    this.recetaSelec = this.recetas[0] || new Receta('Anonimo','','','',0);
+    this.recetaSelec = this.recetas[0] || new Receta ('Anonimo');
 
   }
 
@@ -30,9 +30,5 @@ export class RecetarioComponent implements OnInit {
     console.log('RecetarioComponent seleccionarReceta');
     this.recetaSelec = receta;
   }
-  changeGlutenFilter(){
-    this.glutenFilter = !this.glutenFilter;
-  }
 
-  
 }

@@ -1,40 +1,37 @@
-
+<div class="container">
     <h1> <img src="./assets/img/chef.png" alt="recetario Web"> RECETARIO WEB</h1>
 
-
-
-<div class="row">
-  <div class="buscador">
-      <label for="glutenFilter">Recetas sin gluten:</label>&nbsp;<input type="checkbox" [(ngModel)]="glutenFilter">
-      <input [(ngModel)] = "searchText" size="155" placeholder="Busca tu Receta por cocinero, receta o ingredientes" ><img class="lupa" src="./assets/img/magnifier.png" alt="lupa buscador">
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-3">
-    <div class="panel panel-warning">
-      <div class="panel-heading">
-        <h3 class="panel-title">Lista de Recetas</h3>
+        <!-- formulario con ventana modal -->  
+        <app-formulario></app-formulario>
+      
+        <!-- Buscador de recetas -->
+        <div class="input-group" id="buscadorRecetas">   
+          <input type="text" class="form-control" placeholder="Busca receta por nombre, cocinero o ingredientes" [(ngModel)]="searchText">
+          <span class="input-group-addon glyphicon glyphicon-search"></span>
+          
+        </div>
+      
+      
+        <div class="row">
+            
+          <!-- Lista de recetas -->
+          <div id="listaRecetas" class="col-md-3">
+            <label for="glutenFilter">Recetas Sin Gluten</label>
+            <input type="checkbox" [(ngModel)]="glutenFilter" name="glutenFilter">
+           
+            <div class="list-group">
+              <a *ngFor='let receta of recetas | filterRecetas : searchText : glutenFilter' class="list-group-item" (click)="seleccionarReceta(receta)">
+                <b>{{receta.nombre}}</b> <br> <em>{{receta.cocinero}}</em>
+                <img [src]=" (receta.isGlutenFree) ? 'assets/img/gluten_free_icon.png' : 'assets/img/gluten_icon.png' " alt="info gluten" class="icono-gluten">
+              </a>
+          </div>
+          </div><!-- END #listaRecetas -->
+      
+          <!-- Componente: RecetaDetalleComponent -->
+          <div id="detalleRecetaComp" class="col-md-9">
+             <app-detalle [receta]="recetaSelec"></app-detalle>
+          </div>
+      
+        </div><!-- END .row -->
+      
       </div>
-    </div>
-    <div class="panel-body">
-        <ul >
-            <li *ngFor="let receta of recetas | filterReceta : searchText : glutenFilter" (click)="seleccionarReceta(receta)"><b>{{receta.nombre}}</b><br><em>{{receta.cocinero}}</em>
-            </li>
-        </ul>  
-    </div>  
-  </div>
-
- <div class="col-xs-9">
-    <div class="panel panel-warning">
-        <div class="panel-heading">
-            <h3 class="panel-title">Detalle de las recetas</h3>
-        </div>
-        <div class="panel-body">
-           <app-detalle [receta]="recetaSelec "></app-detalle> <!--Aqui el padre le manda un parametro "receta" al hijo para el input y output -->
-        </div>
-    </div>
-  </div>
-</div>  
-
-  
-<!-- <div class="row"> -->
