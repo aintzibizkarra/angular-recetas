@@ -5,7 +5,8 @@
 
 <div class="row">
   <div class="buscador">
-      <input [(ngModel)] = "searchText" placeholder="Busca tu Receta"><img class="lupa" src="./assets/img/magnifier.png" alt="lupa buscador">
+      <label for="glutenFilter">Recetas sin gluten:</label>&nbsp;<input type="checkbox" [(ngModel)]="glutenFilter">
+      <input [(ngModel)] = "searchText" size="155" placeholder="Busca tu Receta por cocinero, receta o ingredientes" ><img class="lupa" src="./assets/img/magnifier.png" alt="lupa buscador">
   </div>
 </div>
 <div class="row">
@@ -17,8 +18,9 @@
     </div>
     <div class="panel-body">
         <ul >
-            <li *ngFor="let receta of recetas | filter: searchText" (click)="seleccionarReceta(receta)">{{receta.nombre}}</li>
-          </ul>  
+            <li *ngFor="let receta of recetas | filterReceta : searchText : glutenFilter" (click)="seleccionarReceta(receta)"><b>{{receta.nombre}}</b><br><em>{{receta.cocinero}}</em>
+            </li>
+        </ul>  
     </div>  
   </div>
 
@@ -28,7 +30,7 @@
             <h3 class="panel-title">Detalle de las recetas</h3>
         </div>
         <div class="panel-body">
-           <app-detalle [receta]="recetaSelec "></app-detalle>
+           <app-detalle [receta]="recetaSelec "></app-detalle> <!--Aqui el padre le manda un parametro "receta" al hijo para el input y output -->
         </div>
     </div>
   </div>
