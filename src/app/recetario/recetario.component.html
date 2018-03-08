@@ -2,16 +2,14 @@
     <h1> <img src="./assets/img/chef.png" alt="recetario Web"> RECETARIO WEB</h1>
 
         <!-- formulario con ventana modal -->  
-        <app-formulario></app-formulario>
+       
       
         <!-- Buscador de recetas -->
         <div class="input-group" id="buscadorRecetas">   
           <input type="text" class="form-control" placeholder="Busca receta por nombre, cocinero o ingredientes" [(ngModel)]="searchText">
           <span class="input-group-addon glyphicon glyphicon-search"></span>
-          
         </div>
-      
-      
+       
         <div class="row">
             
           <!-- Lista de recetas -->
@@ -25,7 +23,9 @@
                 <img [src]=" (receta.isGlutenFree) ? 'assets/img/gluten_free_icon.png' : 'assets/img/gluten_icon.png' " alt="info gluten" class="icono-gluten">
               </a>
           </div>
+          <app-formulario></app-formulario>
           </div><!-- END #listaRecetas -->
+          
       
           <!-- Componente: RecetaDetalleComponent -->
           <div id="detalleRecetaComp" class="col-md-9">

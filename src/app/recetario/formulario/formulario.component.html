@@ -1,52 +1,62 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-default btnReceta" data-toggle="modal" data-target="#modalReceta">
+<button type="button" class="btn btn-success btnReceta" data-toggle="modal" data-target="#modalReceta">
     Cocinar Nueva Receta
 </button>
-      
 <!-- Modal -->
 <div class="modal fade" id="modalReceta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button type="button" id="btn-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Nueva Receta</h4>
-        </div>
-        <div class="modal-body">
-            <p>Valores: {{ formulario.value | json }}</p>
-            <p>Estado:  {{ formulario.status | json }}</p>
-            <hr>
-            <form [formGroup]="formulario" (ngSubmit)="sumitar($event)" novalidate >
-                <div class="form-group">
-                    <div class=" imagenModal">
-                        <img formControlName="imagen" src="assets/img/receta_Default.jpg" class="img-thumbnail" alt="receta foto">
-                        <label for="imagenModal">Foto: <input class="textoImagenModal" type="text"></label>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" id="btn-close" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Nueva Receta</h4>
+            </div>
+            <div class="modal-body">
+                <!--<p>Valores: {{ formulario.value | json }}</p>
+                <p>Estado:  {{ formulario.status | json }}</p>-->
+                <p>Escribe la receta para subir a la web y compartirla con todo el mundo.</p>
+                <p>Gracias.</p>
+                <hr>
+                <form [formGroup]="formulario" (ngSubmit)="sumitar($event)" novalidate>
+                    <div [ngClass]="estilosInput(formulario.controls.nombre)">
+                        <label for="nombre"><span class="rojo">*</span>Nombre:</label>
+                        <input class="form-control" id="nombre" formControlName="nombre" placeholder="Nombre">
+                        <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio, mínimo 2 letras</p>
                     </div>
-                    <label for="nombre">Nombre:</label>
-                    <input id="nombre" formControlName="nombre" placeholder="Nombre">
-                    <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">*Obligatorio, mínimo 2 letras</p>
+                    <div [ngClass]="estilosInput(formulario.controls.cocinero)">
+                            <label for="cocinero" class="control-label">Cocinero:</label>
+                            <input id="cocinero" formControlName="cocinero" placeholder="Cocinero" class="form-control">                
+                            <p *ngIf="formulario.controls.cocinero.invalid && formulario.controls.cocinero.touched" class="text-danger">*Mínimo 5 letras</p>
+                    </div> 
+                    <div class="form-group">
+                            <label for="gluten"><span class="rojo">*</span>Gluten:</label>
+                            <input type="radio" formControlName="gluten"  value="true">Si
+                            <input type="radio" formControlName="gluten" value="false">No
+                    </div>
+                    <div [ngClass]="estilosInput(formulario.controls.imagen)">
+                       <img  [src]="formulario.controls.imagen.value" class="img-responsive imagenModal" alt="imagen de la receta">
+                        <label for="imagenModal"><span class="rojo">*</span>Imagen de la receta:</label> <input class="textoImagenModal" size="50" type="text" formControlName="imagen"  placeholder="URL de la imagen">
+                        <p *ngIf="formulario.controls.imagen.invalid && formulario.controls.imagen.touched" class="text-danger">*Obligatorio, introduce una imagen</p>
+                    </div>
+                <label for=""><span class="rojo">*</span>Ingredientes </label>
+                
+                <a (click)="clickOtroIngrediente()">Añadir Ingrediente</a>
+                <p *ngIf="formulario.controls.ingredientes.invalid && formulario.controls.ingredientes.dirty" class="text-danger">*{{mensaje}}</p>
+                <div formArrayName="ingredientes"
+                    *ngFor="let ingrediente of formulario.get('ingredientes').controls; let i = index;">                 
+                    <div [formGroupName]="i">
+                        <input formControlName="nombre" placeholder="Nuevo Ingrediente" class="ingrediente-input">                        
+                        <span class="glyphicon glyphicon-remove-circle" (click)="clickEliminarIngrediente(i)"></span>
+                    </div>                   
                 </div>
-               
-               
-                <div class="form-group">
-                    <label for="cocinero">Cocinero:</label>
-                    <input id="cocinero" formControlName="cocinero" placeholder="Cocinero">                
-                </div>   
-                <div class="form-group">
-                    <label for="gluten">Gluten:</label>
-                    <input type="radio" name="gluten"  >Si
-                    <input type="radio" name="gluten">No
-                </div>
-                <div class="form-group">
-                  <textarea class="form-control" rows="5" id="descripcion" formControlName= "descripcion"></textarea>
-                  <p *ngIf="formulario.controls.descripcion.invalid && formulario.controls.descripcion.touched" class="text-danger">*Obligatorio, mínimo 100 carácteres</p>
-                </div>
-              
-             
-                <input type="submit" [disabled]="!formulario.valid" class="btn btn-default btn-block" value="Crear">
-            </form>
-
-
-        </div>   
+                    <div [ngClass]="estilosInput(formulario.controls.descripcion)">
+                        <label for="descripcion"><span class="rojo">*</span>Descripción:</label>
+                        <textarea class="form-control" id="descripcion" formControlName= "descripcion" maxlength="500"></textarea>
+                        <p *ngIf="formulario.controls.descripcion.invalid && formulario.controls.descripcion.touched" class="text-danger">*Obligatorio, mínimo 100 carácteres</p>
+                    </div>
+                    <h6><span class="rojo">*</span>Los campos son obligatorios.</h6>
+                    <input type="submit" [disabled]="!formulario.valid" class="btn btn-success btn-block" value="Crear">
+                </form>
+            </div>   
+        </div>
     </div>
-</div>
 </div>

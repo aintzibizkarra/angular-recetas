@@ -2,9 +2,30 @@
     margin: 20px;
 }
 .imagenModal{
-    float: right;
-    width: 50%;
+   // float: right;
+    //width: 50%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 50%;
+    max-height: 50%;
 }
 .textoImagenModal{
-    margin:15px;
+    margin:15px; 
+}
+
+.ingrediente-input{
+    margin-bottom: 10px;
+}
+
+textarea{
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 200px;
+}
+#nombre{
+    size: 50%;
+}
+.rojo{
+    color: red;
+    font-weight: 600;
 }
