@@ -21,12 +21,14 @@ import { CocheComponent } from './concesionario/coche/coche.component';
 import { ListadoComponent } from './concesionario/listado/listado.component';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { DetalleComponent } from './recetario/detalle/detalle.component';
-
+import { PlantillaComponent } from './plantilla/plantilla.component';
 //Pipes
 import {RoundPipe} from './pipe/round';
 import {FilterPipe} from './pipe/filter.pipe';
 import { FilterRecetas } from './pipe/filter.pipe.receta';
 import { FormularioComponent } from './recetario/formulario/formulario.component';
+import { FormComponent } from './concesionario/form/form.component';
+
 
 
 
@@ -54,6 +56,8 @@ import { FormularioComponent } from './recetario/formulario/formulario.component
     RecetarioComponent,
     DetalleComponent,
     FormularioComponent,
+    FormComponent,
+    PlantillaComponent,
    
   ],
   imports: [

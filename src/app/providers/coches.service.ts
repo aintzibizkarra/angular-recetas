@@ -6,6 +6,8 @@ import { element } from 'protractor';
 @Injectable()
 export class CochesService {
 
+  coche: Coche[];
+
   constructor() { 
     console.log('CochesService constructor');
   }
@@ -37,6 +39,15 @@ export class CochesService {
     });
 
     return coches;
+  }
+
+    /**
+   * Crear Nueva Coche
+   * @param coche : Coche nueva
+   */
+  crearCoche( coche: Coche ):void{
+    console.log('CochesService crear %o', coche );
+    this.coche.unshift(coche);
   }
 
 

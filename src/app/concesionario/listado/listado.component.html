@@ -1,6 +1,11 @@
-<input [(ngModel)] = "searchText" placeholder="Busca tu coche">
-<ul>
-  <li  *ngFor="let coche of stock | filter: searchText">
-      <a (click)="seleccionar($event, coche)" [class.active] = "coche ==coche1 || coche == coche2">{{coche.marca}} {{coche.modelo}}</a>
-  </li>    
+<input [(ngModel)]="searchText" placeholder="busca coche">
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let coche of stock | filter : searchText">
+      <a [class.active]="coche==c1|| coche == c2" 
+         (click)="seleccionar($event, coche)">
+         {{coche.marca}} {{coche.modelo}} {{coche.version}}
+      </a>
+  </li>
+  <!--<app-form> </app-form>   -->
 </ul>

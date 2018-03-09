@@ -12,23 +12,18 @@ y aprender a pasar parametros de uno a otro con <code>@input</code><code>@output
     </ul>-->
 </nav>
 
-<div class="row">
-     <div class="col-md-2">
-        <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Catalogo Coches</h3>
-                </div>
-                <div class="panel-body">
-                   
-                    <!-- llamda componente Hijo -->
-                    <app-listado [stockParametro]="stock"
-                                 (eventoEmitir)="recibirCoche($event)"></app-listado>
-                   
-                </div>
+    <div class="row">
+        <div class="listaCoches col-md-4">
+        <div class="panel-body">
+                    
+            <!-- llamda componente Hijo -->
+            <app-listado [stockParametro]="stock" (eventoEmitir)="recibirCoche($event)"></app-listado>
+                    
         </div>
+            
     </div>   
 
-    <div class="col-md-10">
+    <div class="col-md-8">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Comparador</h3>
