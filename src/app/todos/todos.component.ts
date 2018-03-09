@@ -10,6 +10,7 @@ import { Todo } from '../model/todo';
 export class TodosComponent implements OnInit {
 
   todos : Todo[];
+  glyphicon : string;
 
   constructor(public todosService:TodosService) {
     console.log('TodosComponent constructor');
@@ -56,16 +57,39 @@ export class TodosComponent implements OnInit {
 
   }
 
-  modificarCheck(){
+  /**
+   * Tarea que pone a false una tarea que no esta terminada y a true cuando esta terminada
+   */
+
+  eliminarTarea(todo:Todo){
+    console.log("Eliminar tarea");
+    this.todos.forEach((t,index)=>{if(t.id ===todo.id){
+      this.todos[index].title="";
+      //this.todosService.
+      return false; //break;
+    }});
+  }
+
+
+  /** 
+   * Añade una nueva tarea a la lista
+  */
+ anadirNuevaTarea(todo: Todo){
+    console.log("Añadir nueva tarea");
+    let nTarea : Todo [];
+    nTarea = new Todo [todo.title];
+    this.todos.unshift;
+  }
+
+  modificarTarea(todo : Todo){
     console.log("Modificar el check");
-  }
+    this.todos.forEach((t,index)=>{
+        if(t.id ===todo.id){
+            this.todos[index].completed=!todo.completed;
+            return false; //break;
+        }
+      });
 
-  eliminarCheck(){
-    console.log("Eliminar la tarea");
-  }
-
-  anadirCheck(){
-    console.log("Anñadir nueva tarea");
   }
 
 
