@@ -1,0 +1,57 @@
+#todos{
+    
+        /* The image used */
+       background-image: url("assets/img/coffee.jpg");
+    
+        /* Full height */
+        height: 100%; 
+    
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        min-height: 80vh;
+        display: flex;
+
+        section{
+                background-color: rgba(255,255,255,0.5);
+                margin: auto;
+                width: 70vw;
+                
+                h2{
+                        text-align: center;
+                        margin-bottom:30px;
+                }
+                ul{
+                        list-style: none;
+                        font-size: 1.5em;
+                }
+
+                input[type="checkbox"]{
+                        height: 15px;
+                        width:15px;
+                        margin-right: 10px;
+                }
+        }
+}
+.iconos{
+        float: right;
+        margin-right: 10px;
+        padding-right: 10px;
+        a{
+                color: black;
+        }
+       
+
+}
+.nuevaTarea{
+        float: right;
+        font-size: 1.2em;
+        a{
+                color: black;
+                font-size: 1.2em;
+        }
+       
+
+}
