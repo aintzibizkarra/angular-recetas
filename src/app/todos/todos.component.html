@@ -2,16 +2,14 @@
     <section>
 
         <h2>Lista Tareas</h2>
-        <input type="text" placeholder="Introduce una nueva tarea" class="nuevaT" size="100">
-        <span class="glyphicon glyphicon-plus" (click)="anadirNuevaTarea()"></span>
+        <input type="text" placeholder="Introduce una nueva tarea" class="nuevaT"  [(ngModel)]="nuevaTarea" size="100">
+        <span class="glyphicon glyphicon-plus" (click)="new()"></span>
         <ul>
             <li *ngFor="let todo of todos">
-                <input type="checkbox" [checked]="todo.completed">{{todo.id}} {{todo.title}}
-                <span class="glyphicon glyphicon-trash "  aria-hidden="true" (click)="eliminarTarea(todo)" [(ngModel)]="tachado"></span>
-                <span class=" glyphicon glyphicon-pencil" aria-hidden="true" (click)="modificarTarea(todo)"></span>
-            </li>
+                <input type="checkbox" [checked]="todo.completed"(click)="change(todo)">
+                    <span  [class]="(todo.completed)?'terminada':''" >{{todo.id}} {{todo.title}}</span>
+                    <span (click)="delete(todo)" class="glyphicon glyphicon-trash"></span>                        
+            </li>  
         </ul>
-
-
     </section>
 </div>

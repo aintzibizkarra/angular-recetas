@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { Todo } from '../model/todo';
 
 const END_POINT ="http://localhost:3000";
 
@@ -11,17 +12,41 @@ export class TodosService {
   constructor( public http: HttpClient ) {
 
     console.log('TodoService constructor');
+  }
 
-  
-   }
+   getTodos():Observable<any>{
 
-   getTodos(): Observable<any> {
-
-    //Lanza la peticion y devuelve en un Observable
-    let url = END_POINT + '/todos?userId=2';
-    console.log(`TodoService getTodo ${url}`);
+    //let url = END_POINT + '/todos?userId=1';
+    let url = END_POINT + '/todos';
+    console.log(`TodosService getTodos ${url}`);
     return this.http.get(url);
 
-   }
+  }
+
+  delete(id){
+    let url = END_POINT + '/todos/'+id;
+    console.log(`TodosService delete ${url}`);
+    return this.http.delete(url);
+  }
+
+  post(todo:Todo){
+      let url = END_POINT + '/todos/';
+      console.log(`TodosService put ${url}`);
+
+      let body = {
+                    // "id": todo.id,
+                    "userId": todo.userId,
+                    "title": todo.title,
+                    "completed": todo.completed    
+                  } 
+                
+      const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json'
+        })
+      };
+
+      return this.http.post( url, body , httpOptions );
+    }
 
 }
