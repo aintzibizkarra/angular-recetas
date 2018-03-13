@@ -25,6 +25,7 @@ import { ListadoComponent } from './concesionario/listado/listado.component';
 import { RecetarioComponent } from './recetario/recetario.component';
 import { DetalleComponent } from './recetario/detalle/detalle.component';
 import { PlantillaComponent } from './plantilla/plantilla.component';
+import { FormularioBasicoComponent } from './formulario-basico/formulario-basico.component';
 
 //Pipes
 import {RoundPipe} from './pipe/round';
@@ -33,6 +34,8 @@ import { FilterRecetas } from './pipe/filter.pipe.receta';
 import { FormularioComponent } from './recetario/formulario/formulario.component';
 import { FormComponent } from './concesionario/form/form.component';
 import { TodosComponent } from './todos/todos.component';
+import { BodegaComponent } from './bodega/bodega.component';
+
 
 
 
@@ -58,6 +61,8 @@ import { TodosComponent } from './todos/todos.component';
     FormComponent,
     PlantillaComponent,
     TodosComponent,
+    FormularioBasicoComponent,
+    BodegaComponent,
    
   ],
   imports: [

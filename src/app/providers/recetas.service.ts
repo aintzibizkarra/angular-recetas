@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Receta } from '../model/receta';
 import { MOCK_RECETA } from './mock.recetas';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { GLOBAL } from '../global';
 
 @Injectable()
 export class RecetasService {
 
   recetas : Receta[];
 
-  constructor() { 
+  constructor(public http: HttpClient) { 
     console.log('RecetasService constructor');
   }
 
@@ -43,4 +46,5 @@ export class RecetasService {
     this.recetas.unshift(receta);
   }
 
+ 
 }

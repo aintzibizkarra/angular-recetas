@@ -1,10 +1,6 @@
 <div class="container">
     <h1> <img src="./assets/img/chef.png" alt="recetario Web"> RECETARIO WEB</h1>
-
-         
-       
-      
-        <!-- Buscador de recetas -->
+      <!-- Buscador de recetas -->
         <div class="input-group" id="buscadorRecetas">   
           <input type="text" class="form-control" placeholder="Busca receta por nombre, cocinero o ingredientes" [(ngModel)]="searchText">
           <span class="input-group-addon glyphicon glyphicon-search"></span>
@@ -12,7 +8,7 @@
        
         <div class="row">
             
-          <!-- Lista de recetas -->
+          <!-- Componente: Lista de recetas -->
           <div id="listaRecetas" class="col-md-3">
             <label for="glutenFilter">Recetas Sin Gluten</label>
             <input type="checkbox" [(ngModel)]="glutenFilter" name="glutenFilter">

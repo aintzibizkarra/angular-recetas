@@ -1,0 +1,19 @@
+              <!--Depuracion-->
+<p>Valores: {{ formulario.value | json }}</p>
+<p>Estado:  {{ formulario.status | json }}</p>
+
+<form  [formGroup]="formulario" (ngSubmit)="enviar($event)" novalidate>
+  <input formControlName="nombre" >
+  <p *ngIf="formulario.controls.nombre.invalid && formulario.controls.nombre.touched" class="text-danger">Error por blablabla</p>
+  <br>
+  <input type="submit" [disabled]="formulario.invalid" class="btn" value="Enviar" >
+</form>
+
+<hr>
+<h2>Doble Binding o "Banana in a box"</h2>
+<p>VISTA (HTML) &lt;------- CONTROLADOR-MODELO (TS) en dos sentidos es Banana</p>
+<p>VISTA (HTML) &lt;-------&gt; CONTROLADOR-MODELO (TS) en dos sentidos es Banana in a box</p>
+
+{{fruta}}
+<br>
+<input [(ngModel)]="fruta">

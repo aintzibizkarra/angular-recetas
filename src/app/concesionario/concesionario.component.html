@@ -16,7 +16,7 @@ y aprender a pasar parametros de uno a otro con <code>@input</code><code>@output
         <div class="listaCoches col-md-4">
         <div class="panel-body">
                     
-            <!-- llamda componente Hijo -->
+            <!-- llamda componente Hijo, [stockParametro]="stock"  es input, (eventoEmitir)="recibirCoche($event)" es output -->
             <app-listado [stockParametro]="stock" (eventoEmitir)="recibirCoche($event)"></app-listado>
                     
         </div>
