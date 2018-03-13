@@ -1,35 +1,28 @@
-import { cleanSession } from "selenium-webdriver/safari";
+export class Usuario{
 
-/* Una clase para encapsular los atributos de una receta. */ 
+    //atributos
+    id : number;
+    nombre : string;
+    apellido : string;
+    email : string;
+    avatar : string;
+    sexo : Sexo;
 
-export class Usuario {
-    //Atributos
-    nombre:string;
-    avatar:string;
-    apellidos:string;
-    id:number;
-   // sexo:Sexo;
-    email:string;
-    
-    //Solo es posible un constructor.
-    constructor(nombre:string ='Anonimo'){
-
-        console.log('Usuario constructor.');
+    constructor( nombre:string = 'Anonimo' ){
 
         this.id = -1;
         this.nombre = nombre;
-        this.avatar = '';
-        this.apellidos = '';
-        //this.sexo = Sexo.Otros;
-        
+        this.apellido = '';
+        this.email = '';
+        this.avatar = 'http://www.noworrynotension.com/SignIn/assets/images/user-icon-png-pnglogocom.png';
+        this.sexo = Sexo.INDETERMINDADO;
 
     }
 
-   /* export enum Sexo{
-        MASCULINO = 'Masculino'
-        FEMENINO = 'Femenino'
-        OTROS = 'Otros'
-    }*/
-    
+}
 
+export enum Sexo {
+    MASCULINO = "Masculino",
+    FEMENINO = "Femenino",
+    INDETERMINDADO = "Indeterminado"
 }

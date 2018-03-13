@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Usuario} from '../model/usuario';
+import { Usuario, Sexo } from '../model/usuario';
 
 @Component({
   selector: 'app-usuario',
@@ -7,19 +7,17 @@ import {Usuario} from '../model/usuario';
   styleUrls: ['./usuario.component.scss']
 })
 export class UsuarioComponent implements OnInit {
-  avatar:string;
-  usuario: Usuario;
-  
 
-  constructor() { 
+  usuario : Usuario;
+
+  constructor() {
     console.log('UsuarioComponent constructor');
-    //Inicializar una clase receta
-
     this.usuario = new Usuario('Homer');
-   
-    this.avatar= 'https://consequenceofsound.files.wordpress.com/2017/04/homer-simpson-feature1.png?w=807';
-     this.usuario.apellidos= 'Simpson';
-    this.usuario.email= 'homer.simpson@springfield.es'
+    this.usuario.apellido = 'Simpson';
+    this.usuario.avatar = 'http://thinkandaction.com/wp-content/uploads/2017/05/what-homer-simpson-taught-us-about-doughnuts-1030x579.jpeg';
+    this.usuario.email = 'homer@homer.com';
+    this.usuario.sexo = Sexo.MASCULINO;
+
   }
 
   ngOnInit() {
