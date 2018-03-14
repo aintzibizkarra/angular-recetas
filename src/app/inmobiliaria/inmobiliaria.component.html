@@ -2,7 +2,10 @@
   <h1><img src="assets/img/home.png" alt="portal inmobiliario"> &nbsp;Portal Inmobiliario</h1>
 
   <!-- BUSCADOR DE CASAS -->
-
+  <div class="input-group" id="buscadorCasas">   
+    <input type="text" class="form-control" placeholder="Busca tu casa por direccion o por nombre" [(ngModel)]="searchText">
+    <span class="input-group-addon glyphicon glyphicon-search"></span>
+  </div>
   <!--LISTADO DE CASAS -->
   <div class="row">
      <!-- Componente: Lista de casas -->
