@@ -11,6 +11,7 @@ import { AppRouter } from './app.route';
 import { CochesService } from './providers/coches.service';
 import { RecetasService } from './providers/recetas.service';
 import { TodosService } from './providers/todos.service';
+import { CasaService } from './providers/casa.service';
 
 //Componentes
 import { AppComponent } from './app.component';
@@ -26,15 +27,19 @@ import { RecetarioComponent } from './recetario/recetario.component';
 import { DetalleComponent } from './recetario/detalle/detalle.component';
 import { PlantillaComponent } from './plantilla/plantilla.component';
 import { FormularioBasicoComponent } from './formulario-basico/formulario-basico.component';
+import { FormularioComponent } from './recetario/formulario/formulario.component';
+import { FormComponent } from './concesionario/form/form.component';
+import { TodosComponent } from './todos/todos.component';
+import { BodegaComponent } from './bodega/bodega.component';
+import { InmobiliariaComponent } from './inmobiliaria/inmobiliaria.component';
+import { CasaComponent } from './inmobiliaria/casa/casa.component';
+
 
 //Pipes
 import {RoundPipe} from './pipe/round';
 import {FilterPipe} from './pipe/filter.pipe';
 import { FilterRecetas } from './pipe/filter.pipe.receta';
-import { FormularioComponent } from './recetario/formulario/formulario.component';
-import { FormComponent } from './concesionario/form/form.component';
-import { TodosComponent } from './todos/todos.component';
-import { BodegaComponent } from './bodega/bodega.component';
+
 
 
 
@@ -63,6 +68,8 @@ import { BodegaComponent } from './bodega/bodega.component';
     TodosComponent,
     FormularioBasicoComponent,
     BodegaComponent,
+    InmobiliariaComponent,
+    CasaComponent,
    
   ],
   imports: [
@@ -76,7 +83,8 @@ import { BodegaComponent } from './bodega/bodega.component';
     HttpClientModule,
     CochesService,
     RecetasService,
-    TodosService
+    TodosService,
+    CasaService
   ],
   bootstrap: [AppComponent]
 })

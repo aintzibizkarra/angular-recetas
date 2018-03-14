@@ -1,0 +1,39 @@
+<div class="container">
+  <h1><img src="assets/img/home.png" alt="portal inmobiliario"> &nbsp;Portal Inmobiliario</h1>
+
+  <!-- BUSCADOR DE CASAS -->
+
+  <!--LISTADO DE CASAS -->
+  <div class="row">
+     <!-- Componente: Lista de casas -->
+    <div class="col-xs-4" id="listadoCasas">
+        <label for="alquiler">Alquiler</label>
+        <input type="checkbox" [(ngModel)]="alquiler" name="alquiler">
+        <label for="venta">Venta</label>
+        <input type="checkbox" [(ngModel)]="venta" name="venta">
+        <!--LISTADO-->
+        <div class="list-group">
+          <div class="row">
+            <div class="col-xs-6">
+                <div class="thumbnail">
+                   <a *ngFor='let casa of casas' (click)="seleccionarCasa(casa)">
+                   <img src="{{casa.foto}}" alt="portal inmobiliario">
+                   <div class="caption">
+                     <p>
+                        <span class="nombreCasa">{{casa.nombre}}</span>
+                        <span class="precio">{{casa.precio}} &euro;</span>
+                     </p>
+                     
+                   </div>
+                  </a> 
+                </div>
+              </div>
+           </div>
+        </div> <!--LISTADO-->
+    </div>
+     <!-- Componente: Detalle de las casas -->
+    <div id="detalleCasaComp" class="col-xs-8">
+        <app-casa [casa]="casaSelec"></app-casa>
+    </div>
+  </div>
+</div>
