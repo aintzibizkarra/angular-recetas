@@ -3,7 +3,7 @@ import { Servicio } from "./servicios";
 export class Casa{
 
     //Atributos
-   
+    id: number;
     nombre: string;
     foto: string;
     precio: number;
@@ -14,7 +14,7 @@ export class Casa{
 
     constructor(){
         console.log('Casa constructor');
-       
+        this.id =-1;
         this.nombre= '';
         this.direccion = '';
         this.foto ='assets/img/casa_default.jpg';

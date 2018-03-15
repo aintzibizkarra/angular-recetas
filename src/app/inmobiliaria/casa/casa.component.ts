@@ -14,19 +14,11 @@ export class CasaComponent implements OnInit {
   
   constructor(public casaService: CasaService) {
     console.log("CasaComponent constructor");
-    this.casadetalle = new Casa();
-   
-   }
+    this.casadetalle = new Casa();   
+  }
 
   ngOnInit() {
     console.log("CasaComponent OnInit");
-    console.log('Detalle de la casa: %o', this.casadetalle);
-    
-    
+    console.log('Detalle de la casa: %o', this.casadetalle);    
   }
-
- 
-
-  
-
 }

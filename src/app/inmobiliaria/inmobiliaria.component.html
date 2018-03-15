@@ -9,34 +9,41 @@
   <!--LISTADO DE CASAS -->
   <div class="row">
      <!-- Componente: Lista de casas -->
-    <div class="col-xs-4" id="listadoCasas">
+    <div class="col-md-4" id="listadoCasas">
+      <h3>Busca tu casa:</h3>
+      <p>
         <label for="alquiler">Alquiler</label>
-        <input type="checkbox" [(ngModel)]="alquiler" name="alquiler">
-        <label for="venta">Venta</label>
-        <input type="checkbox" [(ngModel)]="venta" name="venta">
+        <input type="checkbox" [(ngModel)]="alquilerFilter" name="alquiler">
+      </p>
+        <p>
+            <label for="venta">Venta</label>
+            <input type="checkbox" [(ngModel)]="ventaFilter" name="venta">
+        </p>
+        <p>
+            <label for="precio">Precio</label>&nbsp;Mín:&nbsp;<input type="text" size="6">&nbsp;Max:&nbsp;<input type="text" size="6">
+        </p>
+        
         <!--LISTADO-->
         <div class="list-group">
           <div class="row">
-            <div class="col-xs-6">
-                <div class="thumbnail">
-                   <a *ngFor='let casa of casas' (click)="seleccionarCasa(casa)">
-                   <img src="{{casa.foto}}" alt="portal inmobiliario">
-                   <div class="caption">
-                     <p>
-                        <span class="nombreCasa">{{casa.nombre}}</span>
-                        <span class="precio">{{casa.precio}} &euro;</span>
-                     </p>
-                     
-                   </div>
-                  </a> 
-                </div>
+            <div class="thumbnail well well-lg">
+              <a *ngFor='let casa of casas' (click)="seleccionarCasa(casa)">
+              <img src="{{casa.foto}}" alt="portal inmobiliario">
+              <div class="caption">
+                <p>
+                  <span class="nombreCasa">{{casa.nombre}}</span>
+                  <span class="precio">{{casa.precio}} &euro;</span>
+                </p>
               </div>
-           </div>
+              <hr>
+              </a> 
+            </div>
+          </div>
         </div> <!--LISTADO-->
     </div>
      <!-- Componente: Detalle de las casas -->
-    <div id="detalleCasaComp" class="col-xs-8">
+    <div id="detalleCasaComp" class="col-md-8">
         <app-casa [casa]="casaSelec"></app-casa>
-    </div>
+    </div> <!--Fin componente hijo -->
   </div>
 </div>

@@ -1,30 +1,31 @@
 <div class="row">
   <div class="casa-content">
+    
     <div class="thumbnail">
+      <span id="nombreCasa"><b>{{casadetalle.nombre}}</b></span><span id="precioCasa">{{casadetalle.precio}}&euro;</span>
+      <p>
+        <i class="fa fa-bed" aria-hidden="true">&nbsp;<b>{{casadetalle.habitaciones}}</b>&nbsp;Habitaciones 
+        </i>&nbsp;<i class="fa fa-bath" aria-hidden="true">&nbsp;Baños</i>
+      </p> 
+      <img [src]=" (casadetalle.alquiler) ? 'assets/img/rent.png' : 'assets/img/sale.png'" alt="" class="cartelVentaAlquiler">
       <img src="{{casadetalle.foto}}" alt="portal inmobiliario">
       
-      <p id="pieFoto">
-          <span id="nombreCasa"><b>{{casadetalle.nombre}}</b></span>
-          <span id="precioCasa">{{casadetalle.precio}}&euro;</span>
-        </p>
-        <p>
-          <img src="assets/img/placeholder.png" alt=""><span class="direccion">{{casadetalle.direccion}}</span> 
-        </p>
-        <p>
-            <i class="fa fa-bed" aria-hidden="true">&nbsp;{{casadetalle.habitaciones}}</i>
-        </p>
-        <p><b> Servicios:</b></p>
-         <div class="thumbnail">
-            <p><input type="checkbox" name="servicio"><label for="tv">TV</label></p>
-            <p><input type="checkbox" name="servicio"><label for="tv">Jardin</label></p>
-            
-         </div>  
-              
-            
+      <p id="pieFoto"> 
         
-          
-     
-      
+      </p>
+      <p>
+        <img src="assets/img/placeholder.png" alt=""><span class="direccion">{{casadetalle.direccion}}</span> 
+      </p>
+      <p>
+        
+      </p>
+      <p><b> Servicios:</b></p>
+        <div class="thumbnail">
+          <p><input type="checkbox" name="servicio"><label for="tv">TV</label></p>
+          <p><input type="checkbox" name="servicio"><label for="tv">Jardin</label></p>
+          <p><input type="checkbox" name="servicio"><label for="tv">Cocina</label></p>
+          <p><input type="checkbox" name="servicio"><label for="tv">WC</label></p>
+        </div>  
     </div>
   </div>
 </div>
