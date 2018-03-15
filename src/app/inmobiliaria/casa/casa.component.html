@@ -21,10 +21,11 @@
       </p>
       <p><b> Servicios:</b></p>
         <div class="thumbnail">
-          <p><input type="checkbox" name="servicio"><label for="tv">TV</label></p>
-          <p><input type="checkbox" name="servicio"><label for="tv">Jardin</label></p>
-          <p><input type="checkbox" name="servicio"><label for="tv">Cocina</label></p>
-          <p><input type="checkbox" name="servicio"><label for="tv">WC</label></p>
+        <!--<div *ngFor="let servicios of casa.servicios" class="servicio">
+            <label>
+              <input type="checkbox" [checked]="servicios.disponible"> {{servicios.nombre}}
+              </label>
+            </div>-->
         </div>  
     </div>
   </div>

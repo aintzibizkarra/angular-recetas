@@ -2,38 +2,33 @@
   <h1><img src="assets/img/home.png" alt="portal inmobiliario"> &nbsp;Portal Inmobiliario</h1>
 
   <!-- BUSCADOR DE CASAS -->
+  <h3>Busca tu casa</h3>
   <div class="input-group" id="buscadorCasas">   
-    <input type="text" class="form-control" placeholder="Busca tu casa por direccion o por nombre" [(ngModel)]="searchText">
-    <span class="input-group-addon glyphicon glyphicon-search"></span>
+      <input type="text" class="form-control" placeholder="Busca tu casa por direccion o por nombre" [(ngModel)]="searchText">
+      <span class="input-group-addon glyphicon glyphicon-search"></span>
   </div>
-  <!--LISTADO DE CASAS -->
   <div class="row">
-     <!-- Componente: Lista de casas -->
-    <div class="col-md-4" id="listadoCasas">
-      <h3>Busca tu casa:</h3>
-      <p>
-        <label for="alquiler">Alquiler</label>
-        <input type="checkbox" [(ngModel)]="alquilerFilter" name="alquiler">
-      </p>
-        <p>
-            <label for="venta">Venta</label>
-            <input type="checkbox" [(ngModel)]="ventaFilter" name="venta">
-        </p>
-        <p>
-            <label for="precio">Precio</label>&nbsp;Mín:&nbsp;<input type="text" size="6">&nbsp;Max:&nbsp;<input type="text" size="6">
-        </p>
-        
-        <!--LISTADO-->
+    <div class="radio">
+      <h4>Filtros</h4>
+      <label><input type="radio" name="modo" [(ngModel)]= "modo" value="0">Venta</label>
+      <label><input type="radio" name="modo" [(ngModel)]= "modo" value="1">Alquiler</label>
+      <label><input type="radio" name="modo" [(ngModel)]= "modo" value="2">Todos</label>
+    </div>
+    
+    <p>
+      <label for="precio">Precio:</label>&nbsp;Mín:&nbsp;<input type="text"  size="6">&nbsp;Max:&nbsp;<input type="text"  size="6" >
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <!--LISTADO-->
         <div class="list-group">
           <div class="row">
             <div class="thumbnail well well-lg">
-              <a *ngFor='let casa of casas' (click)="seleccionarCasa(casa)">
-              <img src="{{casa.foto}}" alt="portal inmobiliario">
+              <a *ngFor='let casa of casas | filterCasas: searchText : modo : precioMin : precioMax' (click)="seleccionarCasa(casa)"><!--SelccionarCasa (casa) => let casa itero sobre esta -->
+              <img src="{{casa.foto}}" alt="portal inmobiliario" class="img">
               <div class="caption">
-                <p>
-                  <span class="nombreCasa">{{casa.nombre}}</span>
-                  <span class="precio">{{casa.precio}} &euro;</span>
-                </p>
+                <h3>{{casa.nombre}}<span>{{casa.precio}}&euro;</span></h3>
               </div>
               <hr>
               </a> 
@@ -43,6 +38,8 @@
     </div>
      <!-- Componente: Detalle de las casas -->
     <div id="detalleCasaComp" class="col-md-8">
+
+        <!--@Input('casa') casadetalle : Casa;>>>>> ('casa')=> es lo que pongo en [casa]-->
         <app-casa [casa]="casaSelec"></app-casa>
     </div> <!--Fin componente hijo -->
   </div>

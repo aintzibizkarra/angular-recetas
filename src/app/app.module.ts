@@ -30,7 +30,6 @@ import { FormularioBasicoComponent } from './formulario-basico/formulario-basico
 import { FormularioComponent } from './recetario/formulario/formulario.component';
 import { FormComponent } from './concesionario/form/form.component';
 import { TodosComponent } from './todos/todos.component';
-import { BodegaComponent } from './bodega/bodega.component';
 import { InmobiliariaComponent } from './inmobiliaria/inmobiliaria.component';
 import { CasaComponent } from './inmobiliaria/casa/casa.component';
 
@@ -39,6 +38,7 @@ import { CasaComponent } from './inmobiliaria/casa/casa.component';
 import {RoundPipe} from './pipe/round';
 import {FilterPipe} from './pipe/filter.pipe';
 import { FilterRecetas } from './pipe/filter.pipe.receta';
+import { FilterCasas } from './pipe/filter.pipe.casas';
 
 
 
@@ -57,9 +57,6 @@ import { FilterRecetas } from './pipe/filter.pipe.receta';
     ConcesionarioComponent,
     CocheComponent,
     ListadoComponent,
-    RoundPipe,
-    FilterPipe,
-    FilterRecetas,
     RecetarioComponent,
     DetalleComponent,
     FormularioComponent,
@@ -67,9 +64,13 @@ import { FilterRecetas } from './pipe/filter.pipe.receta';
     PlantillaComponent,
     TodosComponent,
     FormularioBasicoComponent,
-    BodegaComponent,
     InmobiliariaComponent,
     CasaComponent,
+    
+    RoundPipe,
+    FilterPipe,
+    FilterRecetas,
+    FilterCasas
    
   ],
   imports: [

@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-
-import { Servicio } from '../model/servicios';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
-//import {MOCKS_CASA} from './mocks.casa';
 import { Casa } from '../model/casa';
+import { Servicio } from '../model/servicios';
+
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { GLOBAL } from '../global';
 
@@ -22,6 +21,4 @@ export class CasaService {
     console.log(`CasaService getAll ${url}`);    
     return this.http.get(url);
   }
-
-  
 }

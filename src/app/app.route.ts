@@ -12,7 +12,6 @@ import { RecetarioComponent } from './recetario/recetario.component';
 import { PlantillaComponent } from './plantilla/plantilla.component';
 import { TodosComponent } from './todos/todos.component';
 import { FormularioBasicoComponent } from './formulario-basico/formulario-basico.component';
-import { BodegaComponent } from './bodega/bodega.component';
 import { InmobiliariaComponent } from './inmobiliaria/inmobiliaria.component';
 
 const appRoutes: Routes = [
@@ -26,7 +25,6 @@ const appRoutes: Routes = [
     { path: 'plantilla',      component: PlantillaComponent },
     { path: 'todos',      component: TodosComponent },
     { path: 'formulario-basico',      component: FormularioBasicoComponent },
-    { path: 'bodega',      component: BodegaComponent },
     { path: 'inmobiliaria',      component: InmobiliariaComponent },
     { path: '**',           component: Page404Component }
   ];

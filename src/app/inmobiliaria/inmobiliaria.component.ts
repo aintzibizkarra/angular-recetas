@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Casa } from '../model/casa';
 import { CasaService } from '../providers/casa.service';
 import { Servicio } from '../model/servicios';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-inmobiliaria',
@@ -15,26 +16,36 @@ export class InmobiliariaComponent implements OnInit {
   servicio: Servicio[];
   casaSelec : Casa;
   
+  //filtro
+  searchText: string;
+  modo:number;
+  precioMin:number;
+  precioMax: number;
+  
 
   constructor(public casaService: CasaService) {
-
     console.log("InmobiliariaComponent constructor");
-    
+    //inicializar las variables
     this.casas = [];
     this.servicio =[];
+    
+
+    
+
    }
 
   ngOnInit() {
 
     console.log("InmobiliariaComponent OnInit");
-    this.casaSelec = this.casas[0] || new Casa ();
     
-
     this.casaService.getAll().subscribe(
       resultado =>{
         console.debug('peticion correcta %o', resultado);
         this.mapeo(resultado);
-
+        this.casaSelec = this.casas[0] || new Casa ();
+        this.modo =2;
+        this.precioMin = 0;
+        this.precioMax = 0;
       },
       error=>{
         console.warn('Peticion incorrecta %o', error);
@@ -52,7 +63,7 @@ export class InmobiliariaComponent implements OnInit {
   mapeo(result : any){
 
     let casa : Casa;
-    let servicio : Servicio;
+    let servicios: Servicio;
 
     result.forEach(el=> {
       casa = new Casa();
@@ -62,20 +73,13 @@ export class InmobiliariaComponent implements OnInit {
       casa.habitaciones = el.habitaciones;
       casa.foto =el.foto;
       casa.alquiler= el.alquiler;
-      /*casa.servicios= el.servicio.forEach(s => {
-          servicio = new Servicio();
-          servicio.nombre = s.nombre;
-          servicio.disponible = s.disponible;
-          casa.servicios.push(s);
-
-        });*/
-        
-      
-
-      this.casas.push(casa);
-
-    
-      
+      /*result.servicio.forEach(element=> {
+        servicios = new Servicio();
+        servicios.nombre=element.nombre;
+        servicios.disponible=element.disponible;
+        this.servicio.push(servicios);
+      });*/
+     this.casas.push(casa);
     });
 
   }

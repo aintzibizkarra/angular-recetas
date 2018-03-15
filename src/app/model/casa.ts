@@ -17,15 +17,10 @@ export class Casa{
         this.id =-1;
         this.nombre= '';
         this.direccion = '';
-        this.foto ='assets/img/casa_default.jpg';
+        this.foto ='assets/img/casa_default1.jpg';
         this.habitaciones=0;
         this.precio= 0;
-        this.alquiler = true;
+        this.alquiler = false;
         this.servicios =[]; 
-
-
-
     }
-
-
 }
